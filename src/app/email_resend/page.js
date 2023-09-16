@@ -3,15 +3,13 @@ import Image from 'next/image';
 import HeadsetMicOutlinedIcon from '@mui/icons-material/HeadsetMicOutlined';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { TextField, InputAdornment, Button } from '@mui/material';
-import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form'
 import { Dialog } from '@mui/material';
 import PreLoader from '@/components/preloader';
 import DialogError from '@/components/DialogError';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 
 const errorsList = [
   "Email trống",
@@ -20,7 +18,7 @@ const errorsList = [
   "Xác nhận mật khẩu trống",
 ]
 
-export default function Home() {
+export default function EmailResend() {
 
   const {
     register,
@@ -28,13 +26,8 @@ export default function Home() {
     watch
   } = useForm()
 
-  const [showPassword, setShowPassword] = useState(false)
   const [showDialog, setShowDialog] = useState(false)
   const [showDialogError, setShowDialogError] = useState(false)
-
-  const handleTogglePassword = () => {
-    setShowPassword(prev => !prev);
-  }
 
   const onSubmit = (data) => {
     console.log(data)
@@ -46,20 +39,14 @@ export default function Home() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-[url('https://h5.edgexads.co/assets/login-bg.b1fb06c4.jpg')] bg-no-repeat bg-cover bg-center px-5 py-4">
-        <div className="flex items-center justify-between pt-2">
-          <div className="flex relative  items-center justify-center py-2 px-6 text-white text-sm border border-primary rounded-full cursor-pointer">
-            <p className="ml-5">Dịch vụ khách hàng</p>
-            <HeadsetMicOutlinedIcon className="absolute left-3 bottom-2/4 translate-y-2/4 ml-2 text-lg" />
-          </div>
-          <LanguageOutlinedIcon className="text-white text-lg cursor-pointer" />
-        </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-[url('https://h5.edgexads.co/assets/login-bg.b1fb06c4.jpg')] bg-no-repeat bg-cover bg-center px-5 py-4 min-h-screen">
+
         <div className="flex justify-center pt-12 px-4 mb-10">
           <Image src='/Logo.png' alt='Logo' width={124} height={70} />
         </div>
 
         <div className="py-5" >
-          <h3 className="text-xl2 text-white text-center mb-4">Đăng nhập vào tài khoản của bạn</h3>
+          <h3 className="text-xl2 text-white text-center mb-4">Gửi lại xác minh email</h3>
           <div className='relative'>
             <TextField
               {...register('phone')}
@@ -79,8 +66,8 @@ export default function Home() {
                 "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                   border: "none"
                 },
-                "& .MuiInputBase-input": {
-                  backgroundColor: 'transparent'
+                "& .MuiInputBase-root": {
+                  backgroundColor: '#071011'
                 }
               }}
               InputProps={{
@@ -132,10 +119,10 @@ export default function Home() {
           </div>
 
           <TextField
-            {...register('password')}
-            type={showPassword ? "text" : "password"}
+            {...register('email')}
+            type="text"
             fullWidth
-            placeholder='Nhập mật khẩu của bạn'
+            placeholder='Email'
             size='medium'
             style={{
               outline: 'none',
@@ -161,35 +148,18 @@ export default function Home() {
               startAdornment: (
                 <InputAdornment position="start">
                   <div className="flex items-center">
-                    <HttpsOutlinedIcon className="mx-4 text-white text-lg" />
+                    <MailOutlinedIcon className="mx-4 text-white text-lg" />
                   </div>
-                </InputAdornment>
-              ),
-
-              endAdornment: (
-                <InputAdornment position="end" className={watch('password') === '' || !watch('password') ? 'hidden' : ''}>
-                  {
-                    showPassword ? <VisibilityOutlinedIcon onClick={handleTogglePassword} className="text-white text-sm font-light mx-3 cursor-pointer" />
-                      : <VisibilityOffOutlinedIcon onClick={handleTogglePassword} className="text-white text-sm font-light mx-3 cursor-pointer" />
-                  }
                 </InputAdornment>
               )
             }}
           />
 
-          <Button type='submit' variant="contained" className="bg-primary normal-case font-normal w-full mt-16 py-3 text-sm2 hover:bg-primary">Đăng nhập</Button>
+          <Button type='submit' variant="contained" className="bg-primary normal-case font-normal w-full mt-16 py-3 text-sm2 hover:bg-primary">Gửi</Button>
         </div>
-        <div className="flex items-center justify-center text-base mb-4">
-          <Link href='/forget_password' className="ml-2 text-white cursor-pointer">Quên mật khẩu</Link>
+        <div className="flex items-center justify-center text-base mt-4">
+          <Link href='/' className="ml-2 text-white cursor-pointer">Quay lại đăng nhập</Link>
         </div>
-        <div className="flex items-center justify-center text-base mb-4">
-          <Link href='/email_resend' className="ml-2 text-white cursor-pointer">Gửi lại xác minh email</Link>
-        </div>
-        <div className="flex items-center justify-center text-base mb-4">
-          <p className="text-white ">Chưa có tài khoản?</p>
-          <Link href='/register' className="ml-2 text-primary cursor-pointer">Đăng ký</Link>
-        </div>
-
       </form>
 
       <Dialog
