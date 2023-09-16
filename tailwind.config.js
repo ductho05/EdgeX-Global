@@ -76,7 +76,22 @@ module.exports = {
     },
     boxShadow: {
       primary: '0px 0px 6px rgba(0, 0, 0, .12)'
-    }
+    },
+    screens: {
+
+      'mobile': '350px',
+
+      'tablet': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'laptop-small': '1010px',
+
+      'laptop': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'desktop': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
   },
   plugins: [],
 }

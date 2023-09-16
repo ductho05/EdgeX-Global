@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    width: 100%;
+}
+
 body {
     height: max-content;
+    width: 100%;
 }

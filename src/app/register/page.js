@@ -5,7 +5,7 @@ import { TextField, InputAdornment, Button, Dialog } from '@mui/material';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation';
@@ -74,7 +74,7 @@ const Register = () => {
 
   return (
     <>
-      <form onSuccess={onSubmit} onError={handleError} control={control} className="bg-[url('https://h5.edgexads.co/assets/login-bg.b1fb06c4.jpg')] bg-no-repeat bg-cover bg-center px-5 py-4">
+      <form onSuccess={onSubmit} onError={handleError} control={control} className="bg-[url('https://h5.edgexads.co/assets/login-bg.b1fb06c4.jpg')] min-h-screen bg-no-repeat bg-cover bg-center px-5 py-4">
         <div className="flex items-center justify-between pt-2">
           <ArrowBackIosNewOutlinedIcon onClick={handleBackToLogin} className="text-white cursor-pointer text-sm" />
           <LanguageOutlinedIcon className="text-white text-lg cursor-pointer" />

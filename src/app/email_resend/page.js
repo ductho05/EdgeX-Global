@@ -39,7 +39,7 @@ export default function EmailResend() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-[url('https://h5.edgexads.co/assets/login-bg.b1fb06c4.jpg')] bg-no-repeat bg-cover bg-center px-5 py-4 min-h-screen">
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-[url('https://h5.edgexads.co/assets/login-bg.b1fb06c4.jpg')]  bg-no-repeat bg-cover bg-center px-5 py-4 min-h-screen">
 
         <div className="flex justify-center pt-12 px-4 mb-10">
           <Image src='/Logo.png' alt='Logo' width={124} height={70} />

@@ -38,8 +38,9 @@ const menus = [
 ]
 
 const Dashboard = () => {
+
     return (
-        <div className="bg-[#0a100e] py-3.5 px-5 min-h-screen pb-[80px]">
+        <>
             <div className="flex justify-between items-center mb-3">
                 <img src='/Logo.png' className="w-16 h-9" />
                 <div className="flex items-center">
@@ -78,7 +79,7 @@ const Dashboard = () => {
                     value: 'Thời gian khóa'
                 },
             ]} button={{ name: 'Đặt cọc' }} />
-        </div>
+        </>
     )
 }
 

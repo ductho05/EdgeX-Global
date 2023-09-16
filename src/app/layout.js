@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import UseProvider from '@/appState/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,11 +18,13 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
       </head>
       <body className={inter.className}>
-        <div className="flex flex-col items-center min-h-screen max-h-max bg-black-2 text-white">
-          <div className="lg:w-1/3 w-screen min-h-screen max-h-max">
-            {children}
+        <UseProvider>
+          <div className="flex flex-col w-full items-center min-h-screen max-h-max bg-black-2 text-white">
+            <div className="laptop:w-1/3 w-full min-h-screen max-h-max">
+              {children}
+            </div>
           </div>
-        </div>
+        </UseProvider>
       </body>
     </html>
   )
