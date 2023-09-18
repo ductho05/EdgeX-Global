@@ -13,8 +13,7 @@ const ScrollToTop = () => {
 
     const handleScroll = () => {
 
-        console.log(window.scrollY + window.innerHeight)
-        if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 100) {
+        if (window.scrollY + window.innerHeight >= 700) {
             setDisplayButtonTop(true)
         } else {
             setDisplayButtonTop(false)

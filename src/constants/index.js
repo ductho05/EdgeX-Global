@@ -11,17 +11,17 @@ export const navigations = [
     },
     {
         title: 'Quảng cáo',
-        link: '/dashboard',
+        link: '/dashboard/ads_earning',
         icon: <i className="fa-solid fa-video fa-xl" />
     },
     {
         title: 'Tài sản',
-        link: '/dashboard',
+        link: '/dashboard/my_assets',
         icon: <i className="fa-solid fa-right-left fa-xl" />
     },
     {
         title: 'Hồ sơ',
-        link: '/dashboard',
+        link: '/dashboard/profile',
         icon: <i className="fa-solid fa-user fa-xl" />
     },
 ]

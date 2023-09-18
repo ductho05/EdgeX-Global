@@ -11,7 +11,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'wallet': 'linear-gradient(to bottom right,#947dd4,#4f5153,#4f5153,#fbb603);'
+        'wallet': 'linear-gradient(to bottom right,#947dd4,#4f5153,#4f5153,#fbb603);',
+        'ads': 'linear-gradient(93deg,#24AA51 1.21%,#D2ED1A 98.65%);'
       },
       fontSize: {
         'sm2': '15px',
@@ -56,6 +57,14 @@ module.exports = {
           '100%': {
             height: '0%'
           },
+        },
+        pulse: {
+          '0%': {
+            opacity: 0
+          },
+          '100%': {
+            opacity: 1
+          }
         }
       }
     },
