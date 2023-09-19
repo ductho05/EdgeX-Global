@@ -81,9 +81,10 @@ const Subscribe = () => {
                             <p className="text-[21px]">0</p>
                         </div>
                     </div>
-                    <Button className="capitalize h-[42px] w-[120px] bg-bg-button hover:bg-bg-button" variant="contained" startIcon={<i className="fa-solid fa-download fa-2xs" />}>
-                        Nạp
-                    </Button>
+                    <div className="capitalize h-[42px] w-[120px] bg-bg-button rounded-[4px] flex items-center justify-center cursor-pointer">
+                        <i className="fa-solid fa-download fa-sm" />
+                        <p className="ml-[10px]">Nạp</p>
+                    </div>
                 </div>
             </div>
             <div className="mt-[20px]">

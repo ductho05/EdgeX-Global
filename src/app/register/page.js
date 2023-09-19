@@ -5,13 +5,12 @@ import { TextField, InputAdornment, Button, Dialog } from '@mui/material';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import PreLoader from '@/components/preloader';
 import DialogError from '@/components/DialogError';
-import ScrollToTop from '@/components/ScrollToTop';
 
 const errorsList = [
   "Email trống",
@@ -26,16 +25,27 @@ const Register = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     control,
     formState: { errors },
   } = useForm()
 
   const router = useRouter()
+  const searchParams = useSearchParams()
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [showDialog, setShowDialog] = useState(false)
   const [showDialogError, setShowDialogError] = useState(false)
+  const [disable, setDisable] = useState(false)
+
+  useEffect(() => {
+    const code = searchParams.get('code')
+    if (code) {
+      setValue('referralCode', code)
+      setDisable(true)
+    }
+  }, [])
 
   const handleTogglePassword = () => {
     setShowPassword(prev => !prev);
@@ -88,6 +98,7 @@ const Register = () => {
           <div className='relative'>
             <TextField
               {...register('referralCode', { required: 'Referral Code is Empty' })}
+              disabled={disable}
               fullWidth
               placeholder='Mã giới thiệu'
               size='medium'
@@ -109,6 +120,9 @@ const Register = () => {
                 "& .MuiInputBase-input": {
                   textAlign: 'right',
                   backgroundColor: 'transparent'
+                },
+                "& .MuiInputBase-input.Mui-disabled": {
+                  WebkitTextFillColor: "#ffffff",
                 }
               }}
               InputProps={{
@@ -346,7 +360,6 @@ const Register = () => {
           <Link href='/' className="ml-2 text-primary cursor-pointer">Đăng nhập</Link>
         </div>
       </form>
-      <ScrollToTop />
       <Dialog
         open={showDialog}
         sx={{

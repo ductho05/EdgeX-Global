@@ -2,6 +2,13 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 function Invite({ content1, content2, content3, button }) {
+
+    const handleClick = () => {
+        if (button?.action === 'dialog') {
+            button.setOpen(true);
+        }
+    }
+
     return (
         <div className="flex items-center justify-between mt-[15px] p-[18px] bg-[#1d252a] rounded-[8px]">
             <div>
@@ -18,7 +25,7 @@ function Invite({ content1, content2, content3, button }) {
                     }
                 </div>
             </div>
-            <Button variant="contained" size="small" className="min-w-[100px] h-[38px] text-white text-[15px] bg-primary hover:bg-primary normal-case">{button?.name}</Button>
+            <Button onClick={handleClick} variant="contained" size="small" className="min-w-[100px] h-[38px] text-white text-[15px] bg-primary hover:bg-primary normal-case">{button?.name}</Button>
         </div>
     )
 }

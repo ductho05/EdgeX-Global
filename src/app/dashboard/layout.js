@@ -1,6 +1,5 @@
 "use client"
 import Navigation from "@/components/layouts/Navigation"
-import ScrollToTop from "@/components/ScrollToTop"
 
 export default function DashboardLayout({ children }) {
     return (
@@ -9,7 +8,6 @@ export default function DashboardLayout({ children }) {
                 {children}
             </div>
             <Navigation />
-            <ScrollToTop />
         </section>
     )
 }

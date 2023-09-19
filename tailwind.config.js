@@ -81,7 +81,8 @@ module.exports = {
       'red': '#f56c6c',
       'input': '#071011',
       'background-nav': '#090a0e',
-      'bg-button': 'rgba(7,40,23,.6)'
+      'bg-button': 'rgba(7,40,23,.6)',
+      'colorCard': '#1d252a'
     },
     boxShadow: {
       primary: '0px 0px 6px rgba(0, 0, 0, .12)'

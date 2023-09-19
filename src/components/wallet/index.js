@@ -1,18 +1,29 @@
 import Button from '@mui/material/Button';
 import classNames from 'classnames/bind'
 import styles from './wallet.module.css'
+import { useRouter } from 'next/navigation';
 
 const cx = classNames.bind(styles)
 
 const Wallet = () => {
+
+    const route = useRouter()
+    const handleBuy = () => {
+        route.push('/dashboard/subscribe')
+    }
+
+    const handleDeposit = () => {
+        route.push('/deposit')
+    }
+
     return (
         <div className={`${cx('wallet')} mt-5 bg-wallet rounded-[10px] pt-[25px] px-[18px] pb-[21px] pl-[18px]`}>
             <div>
                 <div className="flex justify-between desktop:flex-row mobile:flex-col tablet:flex-row desktop:justify-around laptop-small:flex-col items-center">
                     <img src='/Logo.png' className="w-20 h-12 z-10" />
                     <div className="flex mobile:mt-[10px] laptop-small:mt-[10px]">
-                        <Button variant="contained" size="small" disableElevation={true} className="bg-bg-button hover:bg-bg-button h-[42px] min-w-[130px] ml-[15px] laptop-small:ml-[0px] mobile:ml-[0px] normal-case">Mua</Button>
-                        <Button variant="contained" size="small" disableElevation={true} className="bg-bg-button hover:bg-bg-button h-[42px] min-w-[130px] ml-[15px] normal-case">Nạp</Button>
+                        <Button onClick={handleBuy} variant="contained" size="small" disableElevation={true} className="bg-bg-button hover:bg-bg-button h-[42px] min-w-[130px] ml-[15px] laptop-small:ml-[0px] mobile:ml-[0px] normal-case">Mua</Button>
+                        <Button onClick={handleDeposit} variant="contained" size="small" disableElevation={true} className="bg-bg-button hover:bg-bg-button h-[42px] min-w-[130px] ml-[15px] normal-case">Nạp</Button>
                     </div>
                 </div>
                 <div className='flex flex-col mt-[30px]'>
