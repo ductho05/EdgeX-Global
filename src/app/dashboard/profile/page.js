@@ -1,12 +1,9 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import classNames from 'classnames/bind'
-import styles from './styles.module.css'
 import ProfileItem from '@/components/ProfileItem'
 import { Button } from '@mui/material'
 import Dialogsuccess from '@/components/DialogSuccess'
-
-const cx = classNames.bind(styles)
+import Wallet from '@/components/wallet'
 
 const Profile = () => {
 
@@ -33,11 +30,11 @@ const Profile = () => {
             <div className="flex items-center justify-between">
                 <p className="text-[22px] text-white">Hồ sơ</p>
                 <div className="text-[18px]">
-                    <i class="fa-regular fa-bell mr-[10px] cursor-pointer"></i>
-                    <i class="fa-solid fa-globe cursor-pointer"></i>
+                    <i className="fa-regular fa-bell mr-[10px] cursor-pointer"></i>
+                    <i className="fa-solid fa-globe cursor-pointer"></i>
                 </div>
             </div>
-            <div className={`${cx('wallet')} mt-5 bg-wallet rounded-[10px] pt-[25px] px-[18px] pb-[21px] pl-[18px]`}>
+            <Wallet>
                 <div className="flex justify-between relative">
                     <div className="flex flex-col z-10">
                         <div className="flex mb-[8px]">
@@ -49,7 +46,7 @@ const Profile = () => {
                             <p>
                                 <span className="code">Mã giới thiệu: {code}</span>
                                 <i
-                                    class="fa-regular fa-copy ml-[10px] cursor-pointer coppy"
+                                    className="fa-regular fa-copy ml-[10px] cursor-pointer coppy"
                                     onClick={handleCoppyCode}
                                 />
                             </p>
@@ -60,15 +57,15 @@ const Profile = () => {
                 </div>
                 <div className="flex justify-between mt-[20px]">
                     <div className="z-10 w-[49%] h-[46px] mt-[10px] bg-[rgba(7,40,23,.6)] text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
-                        <i class="fa-solid fa-users"></i>
+                        <i className="fa-solid fa-users"></i>
                         <p className="ml-[5px] normal-case">Đội</p>
                     </div>
                     <div className="z-10 w-[49%] h-[46px] mt-[10px] bg-[rgba(7,40,23,.6)] text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
-                        <i class="fa-solid fa-wallet"></i>
+                        <i className="fa-solid fa-wallet"></i>
                         <p className="ml-[5px] normal-case">Tài sản của tôi</p>
                     </div>
                 </div>
-            </div>
+            </Wallet>
             <div className="mt-[20px]">
                 <ProfileItem title="Hội viên" />
                 <ProfileItem title="Chương trình trưởng nhóm" />

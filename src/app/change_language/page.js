@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import Default from '@/components/layouts/Default'
 
 const languages = [
     'VietNamese',
@@ -11,12 +11,7 @@ const languages = [
 
 const ChangeLanguage = () => {
 
-    const router = useRouter()
     const [language, setLanguage] = useState('VietNamese')
-
-    const handleBack = () => {
-        router.back()
-    }
 
     const handleChooseLanguage = (l) => {
         setLanguage(l)
@@ -24,12 +19,7 @@ const ChangeLanguage = () => {
     }
 
     return (
-        <div className="bg-[#0a100e] py-3.5 px-5 min-h-screen">
-            <div className="flex items-center justify-between">
-                <i onClick={handleBack} className="fa-solid fa-angle-left cursor-pointer"></i>
-                <p className="text-[16px] text-white">Thay đổi ngôn ngữ</p>
-                <p></p>
-            </div>
+        <Default title={'Thay đổi ngôn ngữ'}>
             <div className="flex flex-col mt-[25px]">
                 {
                     languages.map((l, index) => (
@@ -40,7 +30,7 @@ const ChangeLanguage = () => {
                     ))
                 }
             </div>
-        </div>
+        </Default>
     )
 }
 

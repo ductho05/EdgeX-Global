@@ -7,39 +7,48 @@ import { useEffect, useState } from "react"
 import Dialogs from "@/components/Dialog"
 import Dialogsuccess from "@/components/DialogSuccess"
 import { Button } from "@mui/material"
+import { useRouter } from "next/navigation"
 
 const menus = [
     {
         name: 'Nhiệm vụ đạt được',
-        image: 'https://h5.edgexads.co/assets/icon_1.9eeff19d.svg'
+        image: 'https://h5.edgexads.co/assets/icon_1.9eeff19d.svg',
+        path: '/mission'
     },
     {
         name: 'Hướng dẫn',
-        image: 'https://h5.edgexads.co/assets/icon_2.594e02b3.svg'
+        image: 'https://h5.edgexads.co/assets/icon_2.594e02b3.svg',
+        path: '/mission'
     },
     {
         name: 'Đặt cọc',
-        image: 'https://h5.edgexads.co/assets/icon_3.dc2a5945.svg'
+        image: 'https://h5.edgexads.co/assets/icon_3.dc2a5945.svg',
+        path: '/staking'
     },
     {
         name: 'Thông tin mới nhất',
-        image: 'https://h5.edgexads.co/assets/icon_4.6855a54e.svg'
+        image: 'https://h5.edgexads.co/assets/icon_4.6855a54e.svg',
+        path: '/news'
     },
     {
         name: 'Nhóm làm việc',
-        image: 'https://h5.edgexads.co/assets/icon_5.1c35df49.svg'
+        image: 'https://h5.edgexads.co/assets/icon_5.1c35df49.svg',
+        path: '/mining_pool'
     },
     {
         name: 'Quảng cáo',
-        image: 'https://h5.edgexads.co/assets/icon_6.935425ea.svg'
+        image: 'https://h5.edgexads.co/assets/icon_6.935425ea.svg',
+        path: null
     },
     {
         name: 'CIO',
-        image: 'https://h5.edgexads.co/assets/icon_7.80429442.svg'
+        image: 'https://h5.edgexads.co/assets/icon_7.80429442.svg',
+        path: '/ico'
     },
     {
         name: 'Chương trình trưởng nhóm',
-        image: 'https://h5.edgexads.co/assets/icon_8.80167440.svg'
+        image: 'https://h5.edgexads.co/assets/icon_8.80167440.svg',
+        path: '/mission'
     },
 ]
 
@@ -68,6 +77,7 @@ const Dashboard = () => {
     const [showSuccess, setShowSuccess] = useState(false)
     const [showDialogShare, setShowDialogShare] = useState(false)
     const [url, setUrl] = useState('http://localhost:3000/register?code=ABCDEF')
+    const route = useRouter()
 
     const handleCopy = () => {
         navigator.clipboard.writeText(url)
@@ -76,6 +86,14 @@ const Dashboard = () => {
 
     const handleShare = () => {
         setShowDialogShare(true)
+    }
+
+    const handleBuy = () => {
+        route.push('/dashboard/subscribe')
+    }
+
+    const handleDeposit = () => {
+        route.push('/deposit')
     }
 
     useEffect(() => {
@@ -115,7 +133,31 @@ const Dashboard = () => {
                     <p className="text-sm mt-1">Chào mừng đến với Edgex</p>
                 </div>
             </div>
-            <Wallet />
+            <Wallet>
+                <div>
+                    <div className="flex justify-between desktop:flex-row mobile:flex-col tablet:flex-row desktop:justify-around laptop-small:flex-col items-center">
+                        <img src='/Logo.png' className="w-20 h-12 z-10" />
+                        <div className="flex mobile:mt-[10px] laptop-small:mt-[10px]">
+                            <Button onClick={handleBuy} variant="contained" size="small" disableElevation={true} className="bg-bg-button hover:bg-bg-button h-[42px] min-w-[130px] ml-[15px] laptop-small:ml-[0px] mobile:ml-[0px] normal-case">Mua</Button>
+                            <Button onClick={handleDeposit} variant="contained" size="small" disableElevation={true} className="bg-bg-button hover:bg-bg-button h-[42px] min-w-[130px] ml-[15px] normal-case">Nạp</Button>
+                        </div>
+                    </div>
+                    <div className='flex flex-col mt-[30px]'>
+                        <p className="text-[16px] z-10 text-white">Tổng thu nhập cá nhân</p>
+                        <h3 className='text-[26px] text-white font-medium z-10'>0 EDX</h3>
+                    </div>
+                    <div className="flex mt-[30px] laptop-small:flex-col">
+                        <div className="flex flex-col z-10 flex-1 mr-[20px] pl-[17px] border-r border-solid border-white laptop-small:border-none">
+                            <p className="z-10 text-[17px]">0</p>
+                            <p className="z-10 text-[16px]">Video đã xem hôm nay</p>
+                        </div>
+                        <div className="flex flex-col flex-1 pl-[17px] laptop-small:">
+                            <p className="z-10 text-[17px]">1</p>
+                            <p className="z-10 text-[16px]">Tổng gói hiện tại</p>
+                        </div>
+                    </div>
+                </div>
+            </Wallet>
             <Invite content1="0" content2="Tổng số thành viên giới thiệu" button={{ name: 'Mời', action: 'dialog', setOpen: setOpen }} />
             <div className="mt-[15px] flex gap-[10px] flex-wrap">
                 {

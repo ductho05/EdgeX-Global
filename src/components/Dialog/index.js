@@ -20,7 +20,8 @@ function Dialogs({ open, close, children }) {
                 }
             }}
         >
-            <div className="px-[20px] py-[10px] text-white bg-colorCard">
+            <div
+                className="relative px-[20px] py-[10px] text-white max-h-[80vh] overflow-y-scroll bg-colorCard scrollbar-thumb-colorCard scrollbar-thin">
                 <div className="flex justify-end">
                     <i onClick={handleClose} class="fa-solid fa-xmark cursor-pointer"></i>
                 </div>

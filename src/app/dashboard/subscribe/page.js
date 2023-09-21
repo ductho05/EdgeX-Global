@@ -1,10 +1,8 @@
 "use client"
 import React from 'react'
 import PackageItem from '@/components/PackageItem'
-import { styled } from '@mui/material/styles';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import { Button } from '@mui/material';
 import ProductItem from '@/components/ProductItem';
+import Progress from '@/components/Progress';
 
 
 const packages = [
@@ -36,18 +34,6 @@ const packages = [
 
 const Subscribe = () => {
 
-    const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-        height: 15,
-        borderRadius: 100,
-        [`&.${linearProgressClasses.colorPrimary}`]: {
-            backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-        },
-        [`& .${linearProgressClasses.bar}`]: {
-            borderRadius: 100,
-            backgroundColor: theme.palette.mode === 'light' ? '#25AA52' : '#25AA52',
-        },
-    }));
-
     return (
         <>
             <div className="flex items-center justify-between">
@@ -63,9 +49,7 @@ const Subscribe = () => {
                         ))
                     }
                 </div>
-                <div className='mt-[15px]'>
-                    <BorderLinearProgress variant="determinate" value={-1} />
-                </div>
+                <Progress />
                 <p className="text-[22px] mt-[15px]">
                     {0}/8.0000
                     <span className="text-[17px] ml-[10px]">EDX</span>

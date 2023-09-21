@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { useRouter } from 'next/navigation'
+import Default from '@/components/layouts/Default'
 
 const services = [
     {
@@ -27,19 +27,8 @@ const services = [
 
 const CustomerService = () => {
 
-    const router = useRouter()
-
-    const handleBack = () => {
-        router.back()
-    }
-
     return (
-        <div className="bg-[#0a100e] py-3.5 px-5 min-h-screen">
-            <div className="flex items-center justify-between">
-                <i onClick={handleBack} className="fa-solid fa-angle-left cursor-pointer"></i>
-                <p className="text-[16px] text-white">Dịch vụ khách hàng</p>
-                <p></p>
-            </div>
+        <Default title={'Dịch vụ khách hàng'}>
             <div className="flex flex-col mt-[25px]">
                 {
                     services.map((s, index) => (
@@ -50,7 +39,7 @@ const CustomerService = () => {
                     ))
                 }
             </div>
-        </div>
+        </Default>
     )
 }
 
