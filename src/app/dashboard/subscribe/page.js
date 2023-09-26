@@ -3,6 +3,7 @@ import React from 'react'
 import PackageItem from '@/components/PackageItem'
 import ProductItem from '@/components/ProductItem';
 import Progress from '@/components/Progress';
+import Link from 'next/link';
 
 
 const packages = [
@@ -65,10 +66,10 @@ const Subscribe = () => {
                             <p className="text-[21px]">0</p>
                         </div>
                     </div>
-                    <div className="capitalize h-[42px] w-[120px] bg-bg-button rounded-[4px] flex items-center justify-center cursor-pointer">
+                    <Link href="/deposit" className="capitalize h-[42px] w-[120px] bg-bg-button rounded-[4px] flex items-center justify-center cursor-pointer">
                         <i className="fa-solid fa-download fa-sm" />
                         <p className="ml-[10px]">Nạp</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className="mt-[20px]">

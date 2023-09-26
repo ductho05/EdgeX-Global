@@ -48,7 +48,7 @@ const menus = [
     {
         name: 'Chương trình trưởng nhóm',
         image: 'https://h5.edgexads.co/assets/icon_8.80167440.svg',
-        path: '/mission'
+        path: '/leadership_program'
     },
 ]
 
@@ -166,7 +166,7 @@ const Dashboard = () => {
                     ))
                 }
             </div>
-            <Invite content1="Thông tin mới nhất" content2="EdgeX Structure" button={{ name: 'Thêm' }} />
+            <Invite content1="Thông tin mới nhất" content2="EdgeX Structure" button={{ name: 'Thêm', action: 'link', link: '/news' }} />
             <Invite content1="Đặt 15 ngày" content3={[
                 {
                     label: 'Lợi nhuận',
@@ -176,7 +176,7 @@ const Dashboard = () => {
                     label: '15 Ngày',
                     value: 'Thời gian khóa'
                 },
-            ]} button={{ name: 'Đặt cọc' }} />
+            ]} button={{ name: 'Đặt cọc', action: 'link', link: '/staking_detail' }} />
 
             <Dialogs open={open} close={setOpen} >
                 <div className="flex flex-col justify-center items-center pb-[20px]">

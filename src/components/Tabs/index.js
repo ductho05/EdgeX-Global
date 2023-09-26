@@ -16,16 +16,19 @@ function Tabs({ tabs, components }) {
         setCurrentTab(index)
     }
 
-    var classItem = `border border-solid border-primary normal-case w-[${wTab}%] h-[40px] font-[400] leading-4`
+    var classItem = `border border-solid border-primary normal-case h-[40px] font-[400] leading-4`
     var active = "bg-[rgba(76,175,80,.5)] hover:bg-[rgba(76,175,80,.5)]"
     var normal = "hover:bg-[#0a100e]"
 
     return (
         <>
-            <div className="flex items-center justify-between mt-[15px] mb-[15px]">
+            <div className="flex w-[99%] items-center justify-between mt-[15px] mb-[15px]">
                 {
                     tabs.map((tab, index) => (
                         <Button
+                            style={{
+                                width: `${wTab}%`
+                            }}
                             key={index}
                             onClick={() => handleTab(index)}
                             variant="contained"
@@ -36,7 +39,7 @@ function Tabs({ tabs, components }) {
                     ))
                 }
             </div>
-            <div className="mt-[30px]">
+            <div className="mt-[30px] w-[99%]">
                 {
                     components.map((Component, index) => (
                         <div key={index} className={currentTab == index ? "visible" : "hidden"}>

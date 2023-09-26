@@ -1,11 +1,16 @@
 import React from 'react'
 import Button from '@mui/material/Button';
+import { useRouter } from 'next/navigation';
 
 function Invite({ content1, content2, content3, button }) {
+
+    const router = useRouter()
 
     const handleClick = () => {
         if (button?.action === 'dialog') {
             button.setOpen(true);
+        } else if (button?.action === 'link') {
+            router.push(button?.link)
         }
     }
 

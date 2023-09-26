@@ -18,7 +18,7 @@ const Navigation = () => {
         <div className="fixed bottom-0 laptop:left-1/3 laptop:right-1/3 left-0 right-0">
             <Box sx={{ width: '100%' }}>
                 <BottomNavigation
-                    showshowLabel={true} Labels
+                    showLabel={true}
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue);
@@ -59,7 +59,7 @@ const Navigation = () => {
                 >
                     {
                         navigations.map((item, index) => (
-                            <BottomNavigationAction key={index} onClick={() => handleRoute(item.link)} showLabel={true} label={item.title} icon={item.icon} />
+                            <BottomNavigationAction key={index} onClick={() => handleRoute(item.link)} showLabel label={item.title} icon={item.icon} />
                         ))
                     }
                 </BottomNavigation>

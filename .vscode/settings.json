@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/5340a155-cdfb-48c8-ab4f-f16c8b19a82e/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/adge-x",
+    "appService.deploySubpath": "."
+}

@@ -4,6 +4,7 @@ import ProfileItem from '@/components/ProfileItem'
 import { Button } from '@mui/material'
 import Dialogsuccess from '@/components/DialogSuccess'
 import Wallet from '@/components/wallet'
+import Link from 'next/link'
 
 const Profile = () => {
 
@@ -56,10 +57,10 @@ const Profile = () => {
                     <i className="fa-solid fa-user-tie text-[23px] p-6 text-primary mr-2.5 bg-[rgba(40,48,57,.5)] rounded-full z-10 absolute laptop-small:right-[-20px] desktop:right-0 right-0"></i>
                 </div>
                 <div className="flex justify-between mt-[20px]">
-                    <div className="z-10 w-[49%] h-[46px] mt-[10px] bg-[rgba(7,40,23,.6)] text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
+                    <Link href="/my_team" className="z-10 w-[49%] h-[46px] mt-[10px] bg-[rgba(7,40,23,.6)] text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
                         <i className="fa-solid fa-users"></i>
                         <p className="ml-[5px] normal-case">Đội</p>
-                    </div>
+                    </Link>
                     <div className="z-10 w-[49%] h-[46px] mt-[10px] bg-[rgba(7,40,23,.6)] text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
                         <i className="fa-solid fa-wallet"></i>
                         <p className="ml-[5px] normal-case">Tài sản của tôi</p>
@@ -67,14 +68,14 @@ const Profile = () => {
                 </div>
             </Wallet>
             <div className="mt-[20px]">
-                <ProfileItem title="Hội viên" />
-                <ProfileItem title="Chương trình trưởng nhóm" />
-                <ProfileItem title="Nhiệm vụ đạt được" />
-                <ProfileItem title="Hội viên" />
-                <ProfileItem title="Hội viên" />
-                <ProfileItem title="Hội viên" />
-                <ProfileItem title="Hội viên" />
-                <ProfileItem title="Hội viên" />
+                <ProfileItem title="Hội viên" link="/membership" />
+                <ProfileItem title="Chương trình trưởng nhóm" link="/leadership_program" />
+                <ProfileItem title="Nhiệm vụ đạt được" link="/mission" />
+                <ProfileItem title="Chi tiết doanh thu" link="/report" />
+                <ProfileItem title="Cài đặt thông tin" link="/profile_setting" />
+                <ProfileItem title="Cập nhật mật khẩu" link="/update_password" />
+                <ProfileItem title="Thông tin ngân hàng/Ví" link="/bank_info" />
+                <ProfileItem title="Dịch vụ khách hàng" link="/customer_service" />
             </div>
             <Button variant="contained" className="w-full h-[46px] bg-primary hover:bg-primary mt-[40px] normal-case text-[15px] font-[400]">Đăng xuất</Button>
             {showDialog && <Dialogsuccess notice="Sao chép thành công!" />}

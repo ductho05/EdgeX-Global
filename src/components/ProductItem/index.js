@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@mui/material'
+import Dialogs from '../Dialog'
 
 const ProductItem = () => {
+
+    const [open, setOpen] = useState(false)
+
+    const handleOpenTabBuy = () => {
+        setOpen(true)
+    }
+
     return (
         <div className="rounded-[10px] bg-[#1d252a] border border-solid border-primary p-[20px] mb-[15px]">
             <div className="flex items-center justify-between">
@@ -24,7 +32,35 @@ const ProductItem = () => {
                     <p>300 EDX</p>
                 </div>
             </div>
-            <Button variant='contained' className="h-[42px] w-full bg-primary hover:bg-primary mt-[30px]">Mua</Button>
+            <Button onClick={handleOpenTabBuy} variant='contained' className="h-[42px] w-full bg-primary hover:bg-primary mt-[30px]">Mua</Button>
+
+            <Dialogs open={open} close={setOpen}>
+                <div className="pb-[20px]">
+                    <p className="text-center mt-[10px] text-[16px] font-[500]">Mua</p>
+                    <div className='flex items-center justify-between mb-[12px] font-[500]'>
+                        <p>Gói: </p>
+                        <p>800 USDT</p>
+                    </div>
+                    <div className='flex items-center justify-between mb-[12px] font-[500]'>
+                        <p>Đạt được: </p>
+                        <p>300%</p>
+                    </div>
+                    <div className='flex items-center justify-between mb-[12px] font-[500]'>
+                        <p>Tổng lợi nhuận: </p>
+                        <p>24000 EDX</p>
+                    </div>
+                    <div className='flex items-center justify-between mb-[12px] font-[500]'>
+                        <p>Phí của gói: </p>
+                        <p>800 USDT</p>
+                    </div>
+                    <div className='flex items-center justify-between mb-[12px] font-[500]'>
+                        <p>Số dư trong ví: </p>
+                        <p>0 USDT</p>
+                    </div>
+                    <Button variant='contained' className="h-[42px] w-full bg-primary hover:bg-primary mt-[30px]">Mua</Button>
+                </div>
+            </Dialogs>
+
         </div>
     )
 }

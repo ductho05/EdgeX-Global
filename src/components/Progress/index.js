@@ -17,7 +17,7 @@ function Progress({ value, totalValue }) {
     }));
 
     return (
-        <div className='relative mt-[15px]'>
+        <div className='relative mt-[15px] w-[90%] z-10'>
             <BorderLinearProgress variant="determinate" value={value && totalValue ? ((value / totalValue) * 100).toFixed(0) : -1} />
             {
                 value > 0 && totalValue ? <p className='absolute text-[#333] text-[13px] left-6 top-1/2 translate-y-[-54%]'>{`${value}/${totalValue} EDX`}</p>

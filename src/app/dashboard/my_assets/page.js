@@ -1,6 +1,7 @@
 import React from 'react'
 import AssetsItem from '@/components/AssetsItem'
 import Wallet from '@/components/wallet'
+import Link from 'next/link'
 
 const MyAssets = () => {
     return (
@@ -33,14 +34,14 @@ const MyAssets = () => {
                 </div>
             </Wallet>
             <div className="flex justify-between items-center mt-[20px] mb-[15px] w-full">
-                <div className="w-[49%] h-[46px] mt-[10px] bg-background-black text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
+                <Link href="/deposit" className="w-[49%] h-[46px] mt-[10px] bg-background-black text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
                     <i className="fa-solid fa-download"></i>
                     <p className="ml-[5px]">Nạp</p>
-                </div>
-                <div className="w-[49%] h-[46px] mt-[10px] bg-background-black text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
+                </Link>
+                <Link href="/withdraw" className="w-[49%] h-[46px] mt-[10px] bg-background-black text-white rounded-[6px] text-[14px] capitalize cursor-pointer flex items-center justify-center">
                     <i className="fa-solid fa-upload"></i>
                     <p className="ml-[5px]">Rút</p>
-                </div>
+                </Link>
             </div>
             <AssetsItem />
             <AssetsItem />
